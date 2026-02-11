@@ -1,3 +1,6 @@
+# Test script for RoutingAgent
+# Demonstrates semantic routing to specialized agents based on prompt content
+
 import os
 from dotenv import load_dotenv
 from workflow_agents.base_agents import RoutingAgent, KnowledgeAugmentedPromptAgent
@@ -6,6 +9,7 @@ load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
+# Define specialized agents with domain-specific knowledge
 texas_persona = "a Texas history expert"
 texas_knowledge = "Rome, Texas is a small town in northeast Texas. It was named after Rome, Georgia."
 texas_agent = KnowledgeAugmentedPromptAgent(openai_api_key, texas_persona, texas_knowledge)
@@ -18,6 +22,7 @@ math_persona = "a mathematics expert"
 math_knowledge = "To calculate total time for multiple stories, multiply the time per story by the number of stories."
 math_agent = KnowledgeAugmentedPromptAgent(openai_api_key, math_persona, math_knowledge)
 
+# Create routing agent to direct queries to appropriate specialist
 routing_agent = RoutingAgent(openai_api_key)
 
 routing_agent.agents = [
@@ -38,6 +43,7 @@ routing_agent.agents = [
     }
 ]
 
+# Test prompts that should route to different specialized agents
 test_prompts = [
     "Tell me about the history of Rome, Texas",
     "Tell me about the history of Rome, Italy",

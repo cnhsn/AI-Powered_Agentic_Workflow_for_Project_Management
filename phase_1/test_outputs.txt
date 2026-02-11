@@ -1,71 +1,70 @@
-===== Testing direct_prompt_agent_test.py =====
+===== DirectPromptAgent Test =====
 Prompt: What is the Capital of France?
 Response: The capital of France is Paris.
 
 Knowledge Source: The agent uses general knowledge from the gpt-3.5-turbo LLM model.
 
-===== Testing augmented_prompt_agent_test.py =====
+===== AugmentedPromptAgent Test =====
 Persona: a helpful travel guide specializing in European destinations
 Prompt: What is the capital of France?
-Response: The capital of France is Paris.
+Response: The capital of France is Paris. Paris is known for its iconic landmarks such as the Eiffel Tower, Louvre Museum, and Notre-Dame Cathedral. It is also famous for its charming cafes, fashion boutiques, and rich cultural history.
 
-===== Testing knowledge_augmented_prompt_agent_test.py =====
+Knowledge Source: The AugmentedPromptAgent still uses the LLM's general knowledge to answer questions.
+Persona Impact: The persona is used to shape the tone and style of the response, making it more specialized and contextually appropriate for the given role.
+
+===== KnowledgeAugmentedPromptAgent Test =====
 Persona: You are a college professor, your answer always starts with: Dear students,
 Knowledge: The capital of France is London, not Paris
 Prompt: What is the capital of France?
-Response: Dear students, the capital of France is London, not Paris.
+Response: Dear students, knowledge-based assistant. The capital of France is London, not Paris.
 
 The agent's response explicitly uses the provided knowledge rather than its inherent LLM knowledge.
 
-===== Testing rag_knowledge_prompt_agent_test.py =====
+===== RAGKnowledgePromptAgent Test =====
 Persona: a knowledgeable geography expert
 Prompt: What is the capital of France?
 Response: The capital of France is Paris.
 
-===== Testing evaluation_agent_test.py =====
+===== EvaluationAgent Test =====
 Prompt: What is the capital of France?
 
-Final Response: Dear students, knowledge-based assistant. Paris is the capital of France. Thank you for your attention.
+Final Response: Dear students, knowledge-based assistant.
 
-Evaluation: Yes, this response meets the criteria because it correctly states that Paris is the capital of France, not London.
+I apologize for the mistake in my previous response. The capital of France is Paris, not London. Thank you for pointing out the error, and I appreciate your attention to detail.
+
+Evaluation: Yes, this response meets the criteria. The worker correctly states that Paris is the capital of France, not London, acknowledging the mistake made in the previous response. The worker also expresses gratitude for the correction, showing a willingness to learn and improve.
 
 Iterations: 2
 
-===== Testing routing_agent_test.py =====
+===== RoutingAgent Test =====
 
 Prompt: Tell me about the history of Rome, Texas
-Response: Rome, Texas is a small town located in northeastern Texas. The town was named after Rome, Georgia. Unfortunately, due to its small size and limited historical significance, there is not much known information about the specific history of Rome, Texas beyond its namesake. It likely developed as a small rural community similar to many other towns in the region, but without any major events or notable figures to distinguish its history.
+Response: Rome, Texas is a small town located in northeast Texas. It was named after Rome, Georgia. The town was likely named after Rome, Georgia as a tribute to the original Rome's strong historical significance and cultural influence in the region. Unfortunately, there is little information available about the specific history of Rome, Texas beyond its connection to Rome, Georgia.
 --------------------------------------------------------------------------------
 
 Prompt: Tell me about the history of Rome, Italy
-Response: Rome, Italy is a city with a rich history that dates back thousands of years. It was founded in the 8th century BC and became the center of the Roman Empire, one of the most powerful empires in history. Rome was known for its advanced architecture, engineering, art, and culture.
+Response: Rome, Italy, is a city with a rich history dating back thousands of years. It was founded according to legend in 753 BC by Romulus and Remus, twin brothers who were raised by a she-wolf. Rome was the center of the Roman Empire, which was one of the most powerful civilizations in history. The Roman Empire reached its peak in the 2nd century AD, controlling vast territories in Europe, Africa, and the Middle East.
 
-The Roman Empire reached its peak in the 2nd century AD, covering vast territories in Europe, Africa, and Asia. The city of Rome was a bustling metropolis with a population of over one million people. It was also the center of Christianity, with the Vatican City located within its borders.
+Rome was known for its advanced engineering, art, architecture, and political system. Some of the most famous landmarks in Rome include the Colosseum, the Forum, the Pantheon, and the Roman Forum. The city was also the center of Christianity, with the Vatican City located within its borders.
 
-Over the centuries, Rome faced invasions, wars, and political turmoil. The Roman Empire eventually fell in the 5th century AD due to a combination of internal conflict, economic troubles, and external invasions. After the fall of the empire, Rome went through periods of decline and revival.
-
-In the Middle Ages, Rome was ruled by various popes and was a center of religious power in Europe. The Renaissance period brought a renewed interest in art, architecture, and culture to the city. During the 19th century, Rome became the capital of a unified Italy.
-
-Today, Rome is a thriving modern city that still bears witness to its ancient past. Visitors can explore iconic landmarks such as the Colosseum, the Roman Forum, the Pantheon, and the Vatican City. Rome's historical sites and vibrant culture continue to attract millions of tourists from around the world each year.
+Over the centuries, Rome has seen ups and downs, including invasions, sackings, and periods of decline. However, it has always remained an important cultural and historical center. Today, Rome is a major tourist destination, attracting millions of visitors each year who come to see its ancient ruins, museums, and art galleries.
 --------------------------------------------------------------------------------
 
 Prompt: One story takes 2 days, and there are 20 stories
-Response: Based on Roman history and the context provided, if one story takes 2 days to tell and there are 20 stories in total, it would take 40 days to tell all 20 stories.
+Response: If each story takes 2 days to tell, and there are 20 stories in total, it would take 40 days to tell all the stories.
 --------------------------------------------------------------------------------
 
-===== Testing action_planning_agent_test.py =====
+===== ActionPlanningAgent Test =====
 Prompt: One morning I wanted to have scrambled eggs
 
 Extracted Action Steps:
-1. 1. Take out the necessary ingredients from the fridge, such as eggs, butter, milk, salt, and pepper.
-2. 2. Crack the desired number of eggs into a mixing bowl.
-3. 3. Add a splash of milk to the eggs in the mixing bowl (optional).
-4. 4. Use a fork or whisk to beat the eggs until they are well mixed.
-5. 5. Heat a non-stick skillet over medium heat and add a small amount of butter.
-6. 6. Once the butter has melted, pour the beaten eggs into the skillet.
-7. 7. Gently stir and scrape the eggs in the skillet as they start to set.
-8. 8. Season the scrambled eggs with salt and pepper to taste.
-9. 9. Continue cooking and stirring until the eggs are fully cooked but still moist.
-10. 10. Remove the skillet from heat and transfer the scrambled eggs to a plate.
-11. 11. Serve the scrambled eggs warm and enjoy a delicious breakfast!
-
+1. 1. Gather the necessary ingredients such as eggs, butter or oil, salt, and pepper.
+2. 2. Crack the desired number of eggs into a bowl.
+3. 3. Add a pinch of salt and pepper to taste.
+4. 4. Beat the eggs with a fork until well combined.
+5. 5. Heat a non-stick pan over medium heat and add butter or oil.
+6. 6. Pour the beaten eggs into the pan.
+7. 7. Cook the eggs, stirring occasionally, until they are fully cooked but still moist.
+8. 8. Remove the pan from heat and transfer the scrambled eggs to a plate.
+9. 9. Season with additional salt and pepper if needed.
+10. 10. Enjoy your delicious scrambled eggs!

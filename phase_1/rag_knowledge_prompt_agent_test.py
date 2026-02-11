@@ -1,3 +1,6 @@
+# Test script for RAGKnowledgePromptAgent
+# Demonstrates retrieval-augmented generation using semantic similarity
+
 import os
 from dotenv import load_dotenv
 from workflow_agents.base_agents import RAGKnowledgePromptAgent
@@ -6,6 +9,7 @@ load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
+# Define persona and knowledge documents for retrieval
 persona = "a knowledgeable geography expert"
 knowledge_documents = [
     "The capital of France is Paris, which is known for the Eiffel Tower.",
@@ -14,6 +18,7 @@ knowledge_documents = [
     "Rome is the capital of Italy."
 ]
 
+# Agent will retrieve most relevant documents based on prompt
 rag_agent = RAGKnowledgePromptAgent(openai_api_key, persona, knowledge_documents)
 
 prompt = "What is the capital of France?"

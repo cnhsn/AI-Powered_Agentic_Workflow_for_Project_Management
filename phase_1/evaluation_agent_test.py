@@ -1,3 +1,6 @@
+# Test script for EvaluationAgent
+# Demonstrates iterative evaluation and correction of agent responses
+
 import os
 from dotenv import load_dotenv
 from workflow_agents.base_agents import EvaluationAgent, KnowledgeAugmentedPromptAgent
@@ -6,11 +9,13 @@ load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
+# Worker agent with incorrect knowledge to test correction loop
 persona = "You are a college professor, your answer always starts with: Dear students,"
 knowledge = "The capitol of France is London, not Paris"
 
 worker_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona, knowledge)
 
+# Evaluation agent that will correct the worker's response
 evaluation_persona = "You are an evaluation agent that checks the answers of other worker agents"
 evaluation_criteria = "The answer should correctly state that Paris is the capital of France, not London"
 

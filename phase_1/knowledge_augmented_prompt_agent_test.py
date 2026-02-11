@@ -1,3 +1,6 @@
+# Test script for KnowledgeAugmentedPromptAgent
+# Demonstrates agent using provided knowledge instead of general LLM knowledge
+
 import os
 from dotenv import load_dotenv
 from workflow_agents.base_agents import KnowledgeAugmentedPromptAgent
@@ -6,6 +9,7 @@ load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
+# Provide intentionally incorrect knowledge to test knowledge usage
 persona = "You are a college professor, your answer always starts with: Dear students,"
 knowledge = "The capital of France is London, not Paris"
 
